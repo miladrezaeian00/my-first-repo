@@ -20,7 +20,6 @@ else
     exit 1
 fi
 
-
 awk 'NR%2{printf "%s ", $0; next} 1' $file1>tempfile1
 awk 'NR%2{printf "%s ", $0; next} 1' $file2>tempfile2
 
