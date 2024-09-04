@@ -20,8 +20,10 @@ else
     exit 1
 fi
 
+#در هر فایل هر دو خط به یک خط تبدیل میشوند و در فایل موقت ریخته میشوند
 awk 'NR%2{printf "%s ", $0; next} 1' $file1>tempfile1
 awk 'NR%2{printf "%s ", $0; next} 1' $file2>tempfile2
 
+# مقایسه دو فایل جدید ایجاد شده در مرحله قبل و خروجی خطوطی که شبیه به هم نبیتند
 diff -u tempfile1 tempfile2 | grep -E "^\-|\+"
 
